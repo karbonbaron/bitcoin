@@ -10,7 +10,7 @@ env:
 
 # https://cirrus-ci.org/guide/tips-and-tricks/#sharing-configuration-between-tasks
 base_template: &BASE_TEMPLATE
-  skip: $CIRRUS_REPO_FULL_NAME == "bitcoin-core/gui" && $CIRRUS_PR == ""  # No need to run on the read-only mirror, unless it is a PR. https://cirrus-ci.org/guide/writing-tasks/#conditional-task-execution
+  skip: $CIRRUS_REPO_FULL_NAME == "monicoin-core/gui" && $CIRRUS_PR == ""  # No need to run on the read-only mirror, unless it is a PR. https://cirrus-ci.org/guide/writing-tasks/#conditional-task-execution
   merge_base_script:
     - if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
     - bash -c "$PACKAGE_MANAGER_INSTALL git"
@@ -28,7 +28,7 @@ global_task_template: &GLOBAL_TASK_TEMPLATE
     # Each project has 16 CPU in total, assign 2 to each container, so that 8 tasks run in parallel
     cpu: 2
     memory: 8G  # Set to 8GB to avoid OOM. https://cirrus-ci.org/guide/linux/#linux-containers
-    kvm: true  # Use kvm to avoid spurious CI failures in the default virtualization cluster, see https://github.com/bitcoin/bitcoin/issues/20093
+    kvm: true  # Use kvm to avoid spurious CI failures in the default virtualization cluster, see https://github.com/monicoin/monicoin/issues/20093
   ccache_cache:
     folder: "/tmp/ccache_dir"
   depends_built_cache:
@@ -43,7 +43,7 @@ global_task_template: &GLOBAL_TASK_TEMPLATE
 compute_credits_template: &CREDITS_TEMPLATE
   # https://cirrus-ci.org/pricing/#compute-credits
   # Only use credits for pull requests to the main repo
-  use_compute_credits: $CIRRUS_REPO_FULL_NAME == 'bitcoin/bitcoin' && $CIRRUS_PR != ""
+  use_compute_credits: $CIRRUS_REPO_FULL_NAME == 'monicoin/monicoin' && $CIRRUS_PR != ""
 
 #task:
 #  name: "Windows"

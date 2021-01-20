@@ -160,7 +160,7 @@ and untracked files and directories will be wiped, allowing you to start anew.
 EOF
 }
 
-# Deterministically build Bitcoin Core
+# Deterministically build Monicoin Core
 # shellcheck disable=SC2153
 for host in $HOSTS; do
 
@@ -178,7 +178,7 @@ INFO: Building commit ${GIT_COMMIT:?not set} for platform triple ${HOST:?not set
       ...using reference timestamp: ${SOURCE_DATE_EPOCH:?not set}
       ...running at most ${MAX_JOBS:?not set} jobs
       ...from worktree directory: '${PWD}'
-          ...bind-mounted in container to: '/bitcoin'
+          ...bind-mounted in container to: '/monicoin'
       ...in build directory: '$(distsrc_for_host "$HOST")'
           ...bind-mounted in container to: '$(DISTSRC_BASE=/distsrc-base && distsrc_for_host "$HOST")'
       ...outputting in: '${OUTDIR:?not set}'
@@ -204,24 +204,24 @@ EOF
         #
         #     When --container is specified, the default behavior is to share
         #     the current working directory with the isolated container at the
-        #     same exact path (e.g. mapping '/home/satoshi/bitcoin/' to
-        #     '/home/satoshi/bitcoin/'). This means that the $PWD inside the
+        #     same exact path (e.g. mapping '/home/satoshi/monicoin/' to
+        #     '/home/satoshi/monicoin/'). This means that the $PWD inside the
         #     container becomes a source of irreproducibility. --no-cwd disables
         #     this behaviour.
         #
         #   --share=SPEC       for containers, share writable host file system
         #                      according to SPEC
         #
-        #   --share="$PWD"=/bitcoin
+        #   --share="$PWD"=/monicoin
         #
-        #                     maps our current working directory to /bitcoin
+        #                     maps our current working directory to /monicoin
         #                     inside the isolated container, which we later cd
         #                     into.
         #
         #     While we don't want to map our current working directory to the
         #     same exact path (as this introduces irreproducibility), we do want
         #     it to be at a _fixed_ path _somewhere_ inside the isolated
-        #     container so that we have something to build. '/bitcoin' was
+        #     container so that we have something to build. '/monicoin' was
         #     chosen arbitrarily.
         #
         #   ${SOURCES_PATH:+--share="$SOURCES_PATH"}
@@ -249,7 +249,7 @@ EOF
                                  --container \
                                  --pure \
                                  --no-cwd \
-                                 --share="$PWD"=/bitcoin \
+                                 --share="$PWD"=/monicoin \
                                  --share="$DISTSRC_BASE"=/distsrc-base \
                                  --share="$OUTDIR"=/outdir \
                                  --expose="$(git rev-parse --git-common-dir)" \
@@ -264,7 +264,7 @@ EOF
                                         ${SOURCES_PATH:+SOURCES_PATH="$SOURCES_PATH"} \
                                         DISTSRC="$(DISTSRC_BASE=/distsrc-base && distsrc_for_host "$HOST")" \
                                         OUTDIR=/outdir \
-                                      bash -c "cd /bitcoin && bash contrib/guix/libexec/build.sh"
+                                      bash -c "cd /monicoin && bash contrib/guix/libexec/build.sh"
     )
 
 done

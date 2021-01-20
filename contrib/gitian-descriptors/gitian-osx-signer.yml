@@ -1,5 +1,5 @@
 ---
-name: "bitcoin-dmg-signer"
+name: "monicoin-dmg-signer"
 distro: "ubuntu"
 suites:
 - "bionic"
@@ -9,10 +9,10 @@ packages:
 - "faketime"
 - "xorriso"
 remotes:
-- "url": "https://github.com/bitcoin-core/bitcoin-detached-sigs.git"
+- "url": "https://github.com/monicoin-core/monicoin-detached-sigs.git"
   "dir": "signature"
 files:
-- "bitcoin-osx-unsigned.tar.gz"
+- "monicoin-osx-unsigned.tar.gz"
 script: |
   set -e -o pipefail
 
@@ -31,8 +31,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=bitcoin-osx-unsigned.tar.gz
-  SIGNED=bitcoin-osx-signed.dmg
+  UNSIGNED=monicoin-osx-unsigned.tar.gz
+  SIGNED=monicoin-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

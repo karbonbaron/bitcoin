@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_OPTIONAL_H
-#define BITCOIN_OPTIONAL_H
+#ifndef MONICOIN_OPTIONAL_H
+#define MONICOIN_OPTIONAL_H
 
 #include <optional>
 #include <utility>
@@ -17,4 +17,4 @@ using Optional = std::optional<T>;
 //! DEPRECATED use std::nullopt in new code.
 static auto& nullopt = std::nullopt;
 
-#endif // BITCOIN_OPTIONAL_H
+#endif // MONICOIN_OPTIONAL_H

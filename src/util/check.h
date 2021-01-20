@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UTIL_CHECK_H
-#define BITCOIN_UTIL_CHECK_H
+#ifndef MONICOIN_UTIL_CHECK_H
+#define MONICOIN_UTIL_CHECK_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/monicoin-config.h>
 #endif
 
 #include <tinyformat.h>
@@ -72,4 +72,4 @@ T get_pure_r_value(T&& val)
 #define Assume(val) ((void)(val))
 #endif
 
-#endif // BITCOIN_UTIL_CHECK_H
+#endif // MONICOIN_UTIL_CHECK_H

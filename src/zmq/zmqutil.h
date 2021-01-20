@@ -2,9 +2,9 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_ZMQ_ZMQUTIL_H
-#define BITCOIN_ZMQ_ZMQUTIL_H
+#ifndef MONICOIN_ZMQ_ZMQUTIL_H
+#define MONICOIN_ZMQ_ZMQUTIL_H
 
 void zmqError(const char* str);
 
-#endif // BITCOIN_ZMQ_ZMQUTIL_H
+#endif // MONICOIN_ZMQ_ZMQUTIL_H

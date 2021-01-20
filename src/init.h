@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_INIT_H
-#define BITCOIN_INIT_H
+#ifndef MONICOIN_INIT_H
+#define MONICOIN_INIT_H
 
 #include <memory>
 #include <string>
@@ -29,7 +29,7 @@ void InitLogging(const ArgsManager& args);
 //!Parameter interaction: change current parameters depending on various rules
 void InitParameterInteraction(ArgsManager& args);
 
-/** Initialize bitcoin core: Basic context setup.
+/** Initialize monicoin core: Basic context setup.
  *  @note This can be done before daemonization. Do not call Shutdown() if this function fails.
  *  @pre Parameters should be parsed and config file should be read.
  */
@@ -47,7 +47,7 @@ bool AppInitParameterInteraction(const ArgsManager& args);
  */
 bool AppInitSanityChecks();
 /**
- * Lock bitcoin core data directory.
+ * Lock monicoin core data directory.
  * @note This should only be done after daemonization. Do not call Shutdown() if this function fails.
  * @pre Parameters should be parsed and config file should be read, AppInitSanityChecks should have been called.
  */
@@ -57,7 +57,7 @@ bool AppInitLockDataDirectory();
  */
 bool AppInitInterfaces(NodeContext& node);
 /**
- * Bitcoin core main initialization.
+ * Monicoin core main initialization.
  * @note This should only be done after daemonization. Call Shutdown() if this function fails.
  * @pre Parameters should be parsed and config file should be read, AppInitLockDataDirectory should have been called.
  */
@@ -71,4 +71,4 @@ void SetupServerArgs(NodeContext& node);
 /** Returns licensing information (for -version) */
 std::string LicenseInfo();
 
-#endif // BITCOIN_INIT_H
+#endif // MONICOIN_INIT_H

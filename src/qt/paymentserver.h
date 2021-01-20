@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_PAYMENTSERVER_H
-#define BITCOIN_QT_PAYMENTSERVER_H
+#ifndef MONICOIN_QT_PAYMENTSERVER_H
+#define MONICOIN_QT_PAYMENTSERVER_H
 
 // This class handles payment requests from clicking on
-// bitcoin: URIs
+// monicoin: URIs
 //
 // This is somewhat tricky, because we have to deal with
 // the situation where the user clicks on a link during
@@ -33,7 +33,7 @@
 //
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/monicoin-config.h>
 #endif
 
 #include <qt/sendcoinsrecipient.h>
@@ -106,4 +106,4 @@ private:
     OptionsModel *optionsModel;
 };
 
-#endif // BITCOIN_QT_PAYMENTSERVER_H
+#endif // MONICOIN_QT_PAYMENTSERVER_H

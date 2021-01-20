@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_TEST_UTIL_NET_H
-#define BITCOIN_TEST_UTIL_NET_H
+#ifndef MONICOIN_TEST_UTIL_NET_H
+#define MONICOIN_TEST_UTIL_NET_H
 
 #include <net.h>
 
@@ -61,4 +61,4 @@ constexpr ConnectionType ALL_CONNECTION_TYPES[]{
     ConnectionType::ADDR_FETCH,
 };
 
-#endif // BITCOIN_TEST_UTIL_NET_H
+#endif // MONICOIN_TEST_UTIL_NET_H

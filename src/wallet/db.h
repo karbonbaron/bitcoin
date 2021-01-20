@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_WALLET_DB_H
-#define BITCOIN_WALLET_DB_H
+#ifndef MONICOIN_WALLET_DB_H
+#define MONICOIN_WALLET_DB_H
 
 #include <clientversion.h>
 #include <fs.h>
@@ -233,4 +233,4 @@ fs::path SQLiteDataFile(const fs::path& path);
 bool IsBDBFile(const fs::path& path);
 bool IsSQLiteFile(const fs::path& path);
 
-#endif // BITCOIN_WALLET_DB_H
+#endif // MONICOIN_WALLET_DB_H

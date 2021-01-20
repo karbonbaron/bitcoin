@@ -4,7 +4,7 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test wallet group functionality."""
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import MonicoinTestFramework
 from test_framework.messages import CTransaction, FromHex, ToHex
 from test_framework.util import (
     assert_approx,
@@ -12,7 +12,7 @@ from test_framework.util import (
 )
 
 
-class WalletGroupTest(BitcoinTestFramework):
+class WalletGroupTest(MonicoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 5

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CONSENSUS_MERKLE_H
-#define BITCOIN_CONSENSUS_MERKLE_H
+#ifndef MONICOIN_CONSENSUS_MERKLE_H
+#define MONICOIN_CONSENSUS_MERKLE_H
 
 #include <vector>
 
@@ -24,4 +24,4 @@ uint256 BlockMerkleRoot(const CBlock& block, bool* mutated = nullptr);
  */
 uint256 BlockWitnessMerkleRoot(const CBlock& block, bool* mutated = nullptr);
 
-#endif // BITCOIN_CONSENSUS_MERKLE_H
+#endif // MONICOIN_CONSENSUS_MERKLE_H

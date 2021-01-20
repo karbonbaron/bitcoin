@@ -13,7 +13,7 @@ from test_framework.messages import (
     msg_addr,
 )
 from test_framework.p2p import P2PInterface
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import MonicoinTestFramework
 from test_framework.util import (
     assert_equal,
 )
@@ -44,7 +44,7 @@ class AddrReceiver(P2PInterface):
             self.num_ipv4_received += 1
 
 
-class AddrTest(BitcoinTestFramework):
+class AddrTest(MonicoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = False
         self.num_nodes = 1

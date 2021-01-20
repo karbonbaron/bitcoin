@@ -36,7 +36,7 @@ pip3 install ds_store mac_alias
 ```
 
 The wallet support requires one or both of the dependencies ([*SQLite*](#sqlite) and [*Berkeley DB*](#berkeley-db)) in the sections below.
-To build Bitcoin Core without wallet, see [*Disable-wallet mode*](#disable-wallet-mode).
+To build Monicoin Core without wallet, see [*Disable-wallet mode*](#disable-wallet-mode).
 
 #### SQLite
 
@@ -67,17 +67,17 @@ Also, the Homebrew package could be installed:
 brew install berkeley-db4
 ```
 
-## Build Bitcoin Core
+## Build Monicoin Core
 
-1. Clone the Bitcoin Core source code:
+1. Clone the Monicoin Core source code:
     ```shell
-    git clone https://github.com/bitcoin/bitcoin
-    cd bitcoin
+    git clone https://github.com/monicoin/monicoin
+    cd monicoin
     ```
 
-2.  Build Bitcoin Core:
+2.  Build Monicoin Core:
 
-    Configure and build the headless Bitcoin Core binaries as well as the GUI (if Qt is found).
+    Configure and build the headless Monicoin Core binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
     ```shell
@@ -97,7 +97,7 @@ brew install berkeley-db4
     ```
 
 ## Disable-wallet mode
-When the intention is to run only a P2P node without a wallet, Bitcoin Core may be
+When the intention is to run only a P2P node without a wallet, Monicoin Core may be
 compiled in disable-wallet mode with:
 ```shell
 ./configure --disable-wallet
@@ -108,33 +108,33 @@ In this case there is no dependency on [*Berkeley DB*](#berkeley-db) and [*SQLit
 Mining is also possible in disable-wallet mode using the `getblocktemplate` RPC call.
 
 ## Running
-Bitcoin Core is now available at `./src/bitcoind`
+Monicoin Core is now available at `./src/monicoind`
 
 Before running, you may create an empty configuration file:
 ```shell
-mkdir -p "/Users/${USER}/Library/Application Support/Bitcoin"
+mkdir -p "/Users/${USER}/Library/Application Support/Monicoin"
 
-touch "/Users/${USER}/Library/Application Support/Bitcoin/bitcoin.conf"
+touch "/Users/${USER}/Library/Application Support/Monicoin/monicoin.conf"
 
-chmod 600 "/Users/${USER}/Library/Application Support/Bitcoin/bitcoin.conf"
+chmod 600 "/Users/${USER}/Library/Application Support/Monicoin/monicoin.conf"
 ```
 
-The first time you run bitcoind, it will start downloading the blockchain. This process could
+The first time you run monicoind, it will start downloading the blockchain. This process could
 take many hours, or even days on slower than average systems.
 
 You can monitor the download process by looking at the debug.log file:
 ```shell
-tail -f $HOME/Library/Application\ Support/Bitcoin/debug.log
+tail -f $HOME/Library/Application\ Support/Monicoin/debug.log
 ```
 
 ## Other commands:
 ```shell
-./src/bitcoind -daemon      # Starts the bitcoin daemon.
-./src/bitcoin-cli --help    # Outputs a list of command-line options.
-./src/bitcoin-cli help      # Outputs a list of RPC commands when the daemon is running.
+./src/monicoind -daemon      # Starts the monicoin daemon.
+./src/monicoin-cli --help    # Outputs a list of command-line options.
+./src/monicoin-cli help      # Outputs a list of RPC commands when the daemon is running.
 ```
 
 ## Notes
 * Tested on OS X 10.14 Mojave through macOS 11 Big Sur on 64-bit Intel
 processors only.
-* Building with downloaded Qt binaries is not officially supported. See the notes in [#7714](https://github.com/bitcoin/bitcoin/issues/7714).
+* Building with downloaded Qt binaries is not officially supported. See the notes in [#7714](https://github.com/monicoin/monicoin/issues/7714).

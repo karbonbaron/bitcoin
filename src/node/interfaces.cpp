@@ -46,7 +46,7 @@
 #include <warnings.h>
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/monicoin-config.h>
 #endif
 
 #include <memory>

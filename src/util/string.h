@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UTIL_STRING_H
-#define BITCOIN_UTIL_STRING_H
+#ifndef MONICOIN_UTIL_STRING_H
+#define MONICOIN_UTIL_STRING_H
 
 #include <attributes.h>
 
@@ -87,4 +87,4 @@ template <typename T1, size_t PREFIX_LEN>
            std::equal(std::begin(prefix), std::end(prefix), std::begin(obj));
 }
 
-#endif // BITCOIN_UTIL_STRENCODINGS_H
+#endif // MONICOIN_UTIL_STRENCODINGS_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CHAIN_H
-#define BITCOIN_CHAIN_H
+#ifndef MONICOIN_CHAIN_H
+#define MONICOIN_CHAIN_H
 
 #include <arith_uint256.h>
 #include <consensus/params.h>
@@ -33,7 +33,7 @@ static constexpr int64_t TIMESTAMP_WINDOW = MAX_FUTURE_BLOCK_TIME;
  * Maximum gap between node time and block time used
  * for the "Catching up..." mode in GUI.
  *
- * Ref: https://github.com/bitcoin/bitcoin/pull/1026
+ * Ref: https://github.com/monicoin/monicoin/pull/1026
  */
 static constexpr int64_t MAX_BLOCK_TIME_GAP = 90 * 60;
 
@@ -429,4 +429,4 @@ public:
     CBlockIndex* FindEarliestAtLeast(int64_t nTime, int height) const;
 };
 
-#endif // BITCOIN_CHAIN_H
+#endif // MONICOIN_CHAIN_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_PREVECTOR_H
-#define BITCOIN_PREVECTOR_H
+#ifndef MONICOIN_PREVECTOR_H
+#define MONICOIN_PREVECTOR_H
 
 #include <assert.h>
 #include <stdlib.h>
@@ -534,4 +534,4 @@ public:
     }
 };
 
-#endif // BITCOIN_PREVECTOR_H
+#endif // MONICOIN_PREVECTOR_H

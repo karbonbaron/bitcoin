@@ -1122,8 +1122,8 @@ static RPCHelpMan gettxout()
                                 {RPCResult::Type::STR_HEX, "hex", ""},
                                 {RPCResult::Type::NUM, "reqSigs", "Number of required signatures"},
                                 {RPCResult::Type::STR_HEX, "type", "The type, eg pubkeyhash"},
-                                {RPCResult::Type::ARR, "addresses", "array of bitcoin addresses",
-                                    {{RPCResult::Type::STR, "address", "bitcoin address"}}},
+                                {RPCResult::Type::ARR, "addresses", "array of monicoin addresses",
+                                    {{RPCResult::Type::STR, "address", "monicoin address"}}},
                             }},
                         {RPCResult::Type::BOOL, "coinbase", "Coinbase or not"},
                     }},
@@ -2429,7 +2429,7 @@ static RPCHelpMan dumptxoutset()
         // use below this block.
         //
         // See discussion here:
-        //   https://github.com/bitcoin/bitcoin/pull/15606#discussion_r274479369
+        //   https://github.com/monicoin/monicoin/pull/15606#discussion_r274479369
         //
         LOCK(::cs_main);
 

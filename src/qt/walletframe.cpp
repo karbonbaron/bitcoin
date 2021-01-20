@@ -4,7 +4,7 @@
 
 #include <qt/walletframe.h>
 
-#include <qt/bitcoingui.h>
+#include <qt/monicoingui.h>
 #include <qt/createwalletdialog.h>
 #include <qt/overviewpage.h>
 #include <qt/walletcontroller.h>
@@ -19,7 +19,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-WalletFrame::WalletFrame(const PlatformStyle* _platformStyle, BitcoinGUI* _gui)
+WalletFrame::WalletFrame(const PlatformStyle* _platformStyle, MonicoinGUI* _gui)
     : QFrame(_gui),
       gui(_gui),
       platformStyle(_platformStyle),
@@ -89,15 +89,15 @@ bool WalletFrame::addWallet(WalletModel *walletModel)
     mapWalletViews[walletModel] = walletView;
 
     connect(walletView, &WalletView::outOfSyncWarningClicked, this, &WalletFrame::outOfSyncWarningClicked);
-    connect(walletView, &WalletView::transactionClicked, gui, &BitcoinGUI::gotoHistoryPage);
-    connect(walletView, &WalletView::coinsSent, gui, &BitcoinGUI::gotoHistoryPage);
+    connect(walletView, &WalletView::transactionClicked, gui, &MonicoinGUI::gotoHistoryPage);
+    connect(walletView, &WalletView::coinsSent, gui, &MonicoinGUI::gotoHistoryPage);
     connect(walletView, &WalletView::message, [this](const QString& title, const QString& message, unsigned int style) {
         gui->message(title, message, style);
     });
-    connect(walletView, &WalletView::encryptionStatusChanged, gui, &BitcoinGUI::updateWalletStatus);
-    connect(walletView, &WalletView::incomingTransaction, gui, &BitcoinGUI::incomingTransaction);
-    connect(walletView, &WalletView::hdEnabledStatusChanged, gui, &BitcoinGUI::updateWalletStatus);
-    connect(gui, &BitcoinGUI::setPrivacy, walletView, &WalletView::setPrivacy);
+    connect(walletView, &WalletView::encryptionStatusChanged, gui, &MonicoinGUI::updateWalletStatus);
+    connect(walletView, &WalletView::incomingTransaction, gui, &MonicoinGUI::incomingTransaction);
+    connect(walletView, &WalletView::hdEnabledStatusChanged, gui, &MonicoinGUI::updateWalletStatus);
+    connect(gui, &MonicoinGUI::setPrivacy, walletView, &WalletView::setPrivacy);
 
     return true;
 }

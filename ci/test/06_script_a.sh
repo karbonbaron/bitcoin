@@ -6,9 +6,9 @@
 
 export LC_ALL=C.UTF-8
 
-BITCOIN_CONFIG_ALL="--enable-suppress-external-warnings --disable-dependency-tracking --prefix=$DEPENDS_DIR/$HOST --bindir=$BASE_OUTDIR/bin --libdir=$BASE_OUTDIR/lib"
+MONICOIN_CONFIG_ALL="--enable-suppress-external-warnings --disable-dependency-tracking --prefix=$DEPENDS_DIR/$HOST --bindir=$BASE_OUTDIR/bin --libdir=$BASE_OUTDIR/lib"
 if [ -z "$NO_WERROR" ]; then
-  BITCOIN_CONFIG_ALL="${BITCOIN_CONFIG_ALL} --enable-werror"
+  MONICOIN_CONFIG_ALL="${MONICOIN_CONFIG_ALL} --enable-werror"
 fi
 DOCKER_EXEC "ccache --zero-stats --max-size=$CCACHE_SIZE"
 
@@ -21,13 +21,13 @@ fi
 DOCKER_EXEC mkdir -p "${BASE_BUILD_DIR}"
 export P_CI_DIR="${BASE_BUILD_DIR}"
 
-DOCKER_EXEC "${BASE_ROOT_DIR}/configure" --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
+DOCKER_EXEC "${BASE_ROOT_DIR}/configure" --cache-file=config.cache $MONICOIN_CONFIG_ALL $MONICOIN_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
 
 DOCKER_EXEC make distdir VERSION=$HOST
 
-export P_CI_DIR="${BASE_BUILD_DIR}/bitcoin-$HOST"
+export P_CI_DIR="${BASE_BUILD_DIR}/monicoin-$HOST"
 
-DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
+DOCKER_EXEC ./configure --cache-file=../config.cache $MONICOIN_CONFIG_ALL $MONICOIN_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
 
 set -o errtrace
 trap 'DOCKER_EXEC "cat ${BASE_SCRATCH_DIR}/sanitizer-output/* 2> /dev/null"' ERR
@@ -37,7 +37,7 @@ if [[ ${USE_MEMORY_SANITIZER} == "true" ]]; then
   # using the Linux getrandom syscall. Avoid using getrandom by undefining
   # HAVE_SYS_GETRANDOM. See https://github.com/google/sanitizers/issues/852 for
   # details.
-  DOCKER_EXEC 'grep -v HAVE_SYS_GETRANDOM src/config/bitcoin-config.h > src/config/bitcoin-config.h.tmp && mv src/config/bitcoin-config.h.tmp src/config/bitcoin-config.h'
+  DOCKER_EXEC 'grep -v HAVE_SYS_GETRANDOM src/config/monicoin-config.h > src/config/monicoin-config.h.tmp && mv src/config/monicoin-config.h.tmp src/config/monicoin-config.h'
 fi
 
 DOCKER_EXEC make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_INTERFACES_NODE_H
-#define BITCOIN_INTERFACES_NODE_H
+#ifndef MONICOIN_INTERFACES_NODE_H
+#define MONICOIN_INTERFACES_NODE_H
 
 #include <amount.h>     // For CAmount
 #include <net.h>        // For CConnman::NumConnections
@@ -48,7 +48,7 @@ struct BlockAndHeaderTipInfo
     double verification_progress;
 };
 
-//! Top-level interface for a bitcoin node (bitcoind process).
+//! Top-level interface for a monicoin node (monicoind process).
 class Node
 {
 public:
@@ -236,4 +236,4 @@ struct BlockTip {
 
 } // namespace interfaces
 
-#endif // BITCOIN_INTERFACES_NODE_H
+#endif // MONICOIN_INTERFACES_NODE_H
