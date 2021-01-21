@@ -1,0 +1,33 @@
+# /etc/conf.d/monicoind: config file for /etc/init.d/monicoind
+
+# Config file location
+#MONICOIND_CONFIGFILE="/etc/monicoin/monicoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $MONICOIND_USER)
+#MONICOIND_PIDDIR="/var/run/monicoind"
+
+# What filename to give the pidfile
+#MONICOIND_PIDFILE="${MONICOIND_PIDDIR}/monicoind.pid"
+
+# Where to write monicoind data (be mindful that the blockchain is large)
+#MONICOIND_DATADIR="/var/lib/monicoind"
+
+# User and group to own monicoind process
+#MONICOIND_USER="monicoin"
+#MONICOIND_GROUP="monicoin"
+
+# Path to monicoind executable
+#MONICOIND_BIN="/usr/bin/monicoind"
+
+# Nice value to run monicoind under
+#MONICOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#MONICOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for monicoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+MONICOIND_SIGTERM_TIMEOUT=600

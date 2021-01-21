@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  monicoind The monicoin core server.
+#
+#
+# chkconfig: 345 80 20
+# description: monicoind
+# processname: monicoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/monicoind, see below
+if [ -f /etc/sysconfig/monicoind ]; then
+        . /etc/sysconfig/monicoind
+fi
+
+RETVAL=0
+
+prog=monicoind
+# you can override the lockfile via MONICOIND_LOCKFILE in /etc/sysconfig/monicoind
+lockfile=${MONICOIND_LOCKFILE-/var/lock/subsys/monicoind}
+
+# monicoind defaults to /usr/bin/monicoind, override with MONICOIND_BIN
+monicoind=${MONICOIND_BIN-/usr/bin/monicoind}
+
+# monicoind opts default to -disablewallet, override with MONICOIND_OPTS
+monicoind_opts=${MONICOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $monicoind $monicoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog -t600
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
